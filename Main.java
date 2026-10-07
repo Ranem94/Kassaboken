@@ -1,45 +1,49 @@
 import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         AccountRegister reg = new AccountRegister();
+while (true) {
+    System.out.println("1. Skapa konto 2. Lista 3. Insattning 4. Uttag 5. Avsluta");
+    String val = sc.nextLine();
 
-        while (true) {
-            System.out.println("\n1. Skapa konto");
-            System.out.println("2. Lista konton");
-            System.out.println("3. Satt in pengar");
-            System.out.println("4. Ta ut pengar");
-            System.out.println("5. Avsluta");
-            System.out.print("Val: ");
-            String val = sc.nextLine();
-
-            if (val.equals("1")) {
-                System.out.print("Agare: ");
-                String owner = sc.nextLine();
-                System.out.print("Belopp: ");
-        double b = Double.parseDouble(sc.nextLine());
-        reg.addAccount(owner, b);
-        System.out.println("Konto skapat.");
-
-            } else if (val.equals("2")) {
-                reg.listAccounts();
-
-            } else if (val.equals("3")) {
-                System.out.print("Agare: ");
-             String owner = sc.nextLine();
-                Account Anna = reg.findAccount(owner);
-                if (Anna == null) {
-                    System.out.println("Konto hittades inte.");
-                } else {
-                    System.out.print("Belopp: ");
-                    double b = Double.parseDouble(sc.nextLine());
-                    Anna.deposit(b);
-                }
-            } else if (val.equals("5")) {
-                break;
-            }
-        }
-        sc.close();
+ if (val.equals("1")) {
+     System.out.print("Agare: ");
+     String owner = sc.nextLine();
+     reg.addAccount(owner, 0);
+} else if (val.equals("2")) {
+     reg.listAccounts();
+} else if (val.equals("3")) {
+     System.out.print("Agare: ");
+     String owner = sc.nextLine();
+     Account a = reg.findAccount(owner);
+     if (a == null) {
+         System.out.println("Konto hittades inte.");
+     } else {
+         System.out.print("Belopp: ");
+         double b = Double.parseDouble(sc.nextLine());
+         a.deposit(b);
+     }
+ } else if (val.equals("4")) {
+     System.out.print("Agare: ");
+     String owner = sc.nextLine();
+     Account a = reg.findAccount(owner);
+     if (a == null) {
+         System.out.println("Konto hittades inte.");
+     } else {
+         System.out.print("Belopp: ");
+         double b = Double.parseDouble(sc.nextLine());
+         if (a.getBalance() < b) {
+             System.out.println("------------------------------");
+             System.out.println(" Otillräckligt saldo!");
+             System.out.println("------------------------------");
+             try { Thread.sleep(2500); } catch (Exception e) {}
+         }
+     }
+ } else if (val.equals("5")) {
+     break;
+ }
+}
+sc.close();
     }
 }
