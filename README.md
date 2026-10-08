@@ -19,3 +19,4 @@ När jag körde fast med Scanner som hoppade över namn-inmatningen sökte jag p
 
 <img width="160" height="90" alt="74bdd788-52b6-4ac3-88ea-74ffbed00216" src="https://github.com/user-attachments/assets/8a9cf8ac-a5c2-4130-8062-1aee25f74c24" />
  
+Det här är video: https://youtu.be/uFF_dY0a2Wo 
